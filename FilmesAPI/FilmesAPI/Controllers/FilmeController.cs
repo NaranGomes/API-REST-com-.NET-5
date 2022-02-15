@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace FilmesAPI.Controllers
 {
@@ -19,9 +20,14 @@ namespace FilmesAPI.Controllers
             filmes.Add(filme);            
         }
         [HttpGet]
-        public IEnumerable<Filme> RecuperarFilmes()
+        public IEnumerable<Filme> RecuperaFilmes()
         {
             return filmes;
+        }
+        [HttpGet("{id}")]
+        public Filme RecuperaFilmePorId(int id)
+        {
+            return filmes.FirstOrDefault(f => f.Id == id);
         }
     }
 }
