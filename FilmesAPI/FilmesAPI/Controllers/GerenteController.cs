@@ -24,14 +24,14 @@ namespace FilmesApi.Controllers
         [HttpPost]
         public IActionResult AdicionaGerente(CreateGerenteDto dto)
         {
-            var gerente = _mapper.Map<Gerente>(dto);
+            Gerente gerente = _mapper.Map<Gerente>(dto);
             _context.Gerentes.Add(gerente);
             _context.SaveChanges();
             return CreatedAtAction(nameof(RecuperaGerentesPorId), new { Id = gerente.Id }, gerente);
         }
 
         [HttpGet("{id}")]
-        private IActionResult RecuperaGerentesPorId(int id)
+        public IActionResult RecuperaGerentesPorId(int id)
         {
             Gerente gerente = _context.Gerentes.FirstOrDefault(gerente => gerente.Id == id);
             if (gerente != null)
