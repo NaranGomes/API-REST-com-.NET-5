@@ -34,7 +34,7 @@ namespace FilmesAPI.Controllers
             return CreatedAtAction(nameof(RecuperaCinemasPorId), new { Id = cinema.Id }, cinema);
         }
 
-        [HttpGet]
+        [HttpGet] 
         public IActionResult RecuperaCinemas([FromQuery] string nomeDoFilme)
         {
             List<Cinema> cinemas = _context.Cinemas.ToList();
