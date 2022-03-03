@@ -33,10 +33,7 @@ namespace UsuariosApi.Services
         {
             Usuario usuario = _mapper.Map<Usuario>(createDto);
             IdentityUser<int> usuarioIdentity = _mapper.Map<IdentityUser<int>>(usuario);
-            Task<IdentityResult> resultadoIdentity = _userManager.CreateAsync(usuarioIdentity, createDto.Password);
-
-            var createRoleResult = _roleManager.CreateAsync(new IdentityRole<int>("admin")).Result;
-            var usuarioRoleResult = _userManager.AddToRoleAsync(usuarioIdentity, "admin").Result;
+            Task<IdentityResult> resultadoIdentity = _userManager.CreateAsync(usuarioIdentity, createDto.Password);                        
 
             if (resultadoIdentity.Result.Succeeded)
             {
