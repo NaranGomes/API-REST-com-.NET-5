@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Identity;
+using System;
 using UsuariosApi.Data.Dtos;
 using UsuariosApi.Models;
 
@@ -11,7 +12,12 @@ namespace UsuariosApi.Profiles
         {
             CreateMap<CreateUsuarioDto, Usuario>();
             CreateMap<Usuario, IdentityUser<int>>();
+            CreateMap<Usuario, CustomIdentityUser>();
         }
 
+        private void CustomIdentityUser()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

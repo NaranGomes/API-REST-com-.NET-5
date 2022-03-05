@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace UsuariosApi.Models
 {
@@ -9,6 +10,7 @@ namespace UsuariosApi.Models
         [Required]
         public string Username { get; set; }
         [Required]
-        public string Email { get; set; }        
+        public string Email { get; set; }
+        public DateTime DataNascimento { get; set; }
     }
 }
